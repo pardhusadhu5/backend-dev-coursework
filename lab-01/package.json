@@ -1,0 +1,23 @@
+{
+  "name": "lab-01",
+  "version": "1.0.0",
+  "description": "Lab 01: Node.js and Express Server - Backend Development Fundamentals",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js",
+    "http-server": "node http-server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "backend",
+    "lab-01"
+  ],
+  "author": "Pardhu Sadhu",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
