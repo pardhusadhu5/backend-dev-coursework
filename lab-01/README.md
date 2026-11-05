@@ -1,7 +1,7 @@
 # Lab 1: Node.js and Express server
 
-**Pardhu Sadhu** • **[Registration Number]** • **Section CSE**  
-*Backend Development Fundamentals — Year II Term II — Aurora — Faculty: Joel Prashanth D*
+**Pardhu Sadhu** • **[Registration Number: 252U1R5128]** • **Section AIDE-2B**  
+*Backend Development Fundamentals — Year II Term II — Aurora — Faculty: Yugandhar Gurjalwar*
 
 ---
 
