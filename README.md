@@ -1,7 +1,7 @@
 # backend-dev-coursework: Backend Development Fundamentals
 
-**Course:** Backend Development Fundamentals — Year II Term II — Aurora  
-**Faculty:** Joel Prashanth D  
+**Course:** Backend Development Fundamentals — AIDE-2B,313 Year II Term II — Aurora  
+**Faculty:** Yugandhar Gurjalwar
 **Student Name:** Pardhu Sadhu  
 
 ---
