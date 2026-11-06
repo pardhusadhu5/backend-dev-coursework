@@ -1,12 +1,18 @@
 # Lab 3: REST API, query parameters, validation, debugging
 
 
-* **Student Name:** S. Pardhu Naidu
-* **Registration Number:** `252U1R5128`
-* **Section:** AIDE-2B
-* **Course:** Backend Development Fundamentals — Year II Term II — Aurora
-* **Faculty:** Yugandhar Gurjalwar
+| Field | Details | Field | Details |
+| :--- | :--- | :--- | :--- |
+| **Student Name** | S. Pardhu Naidu | | |
+| **Student Registration Number** | 252U1R5128 | **Class & Section** | AIDE - 2B & 313 |
+| **Study Level** <br>`UG/PG/Doctorate` | UG | **Year & Term** | II & II |
+| **Subject Name** | Lab 3: REST API, query parameters, validation, debugging | **Course** | Backend Development Fundamentals |
+| **Faculty Name** | Yugandhar Gurjalwar | | |
 
+| Field | Details |
+| :--- | :--- |
+| **Name of the Assessment** | Lab Report 3 |
+| **Date of Submission** | 06-11-2026 |
 ---
 
 ## Live Link
