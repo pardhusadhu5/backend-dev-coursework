@@ -6,7 +6,7 @@
 | **Student Name** | S. Pardhu Naidu | | |
 | **Student Registration Number** | 252U1R5128 | **Class & Section** | AIDE - 2B & 313 |
 | **Study Level** <br>`UG/PG/Doctorate` | UG | **Year & Term** | II & II |
-| **Subject Name** | Lab 3: REST API, query parameters, validation, debugging | **Course** | Backend Development Fundamentals |
+| **TOPIC** | Lab 3: REST API, query parameters, validation, debugging | **Course** | Backend Development Fundamentals |
 | **Faculty Name** | Yugandhar Gurjalwar | | |
 
 | Field | Details |
