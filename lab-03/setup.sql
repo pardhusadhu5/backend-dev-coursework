@@ -1,4 +1,3 @@
--- Lab 3: SQLite database setup
 CREATE TABLE IF NOT EXISTS book (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
@@ -7,7 +6,6 @@ CREATE TABLE IF NOT EXISTS book (
     pages INTEGER NOT NULL
 );
 
--- Seed 10 books
 INSERT INTO book (title, author, price, pages) VALUES 
 ('To Kill a Mockingbird', 'Harper Lee', 399, 281),
 ('1984', 'George Orwell', 299, 328),

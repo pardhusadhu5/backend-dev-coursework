@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 
 let db = null;
 
-// Request logging middleware to log method, path, and response status
 app.use((req, res, next) => {
     res.on('finish', () => {
         console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} - Status: ${res.statusCode}`);
@@ -19,7 +18,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// Task 3: initializeDBAndServer async function
 const initializeDBAndServer = async () => {
     try {
         db = await open({
@@ -37,7 +35,6 @@ const initializeDBAndServer = async () => {
     }
 };
 
-// Root route
 app.get('/', (req, res) => {
     res.status(200).json({
         message: 'Welcome to Lab 2: SQLite database and CRUD routes API',
@@ -51,7 +48,6 @@ app.get('/', (req, res) => {
     });
 });
 
-// Route 1: GET /books/ - Get all books
 app.get('/books/', async (req, res) => {
     try {
         const getBooksQuery = `
@@ -66,7 +62,6 @@ app.get('/books/', async (req, res) => {
     }
 });
 
-// Route 2: GET /books/:bookId/ - Get specific book by ID
 app.get('/books/:bookId/', async (req, res) => {
     try {
         const { bookId } = req.params;
@@ -86,7 +81,6 @@ app.get('/books/:bookId/', async (req, res) => {
     }
 });
 
-// Route 3: POST /books/ - Add a new book
 app.post('/books/', async (req, res) => {
     try {
         const { title, author, price, pages } = req.body;
@@ -112,13 +106,11 @@ app.post('/books/', async (req, res) => {
     }
 });
 
-// Route 4: PUT /books/:bookId/ - Update an existing book
 app.put('/books/:bookId/', async (req, res) => {
     try {
         const { bookId } = req.params;
         const { title, author, price, pages } = req.body;
 
-        // Verify book exists
         const checkBookQuery = `SELECT * FROM book WHERE id = ?;`;
         const existingBook = await db.get(checkBookQuery, [bookId]);
 
@@ -156,12 +148,10 @@ app.put('/books/:bookId/', async (req, res) => {
     }
 });
 
-// Route 5: DELETE /books/:bookId/ - Delete a book
 app.delete('/books/:bookId/', async (req, res) => {
     try {
         const { bookId } = req.params;
 
-        // Verify book exists
         const checkBookQuery = `SELECT * FROM book WHERE id = ?;`;
         const existingBook = await db.get(checkBookQuery, [bookId]);
 
@@ -183,12 +173,10 @@ app.delete('/books/:bookId/', async (req, res) => {
     }
 });
 
-// Handle 404 for unknown routes
 app.use((req, res) => {
     res.status(404).json({ error: '404 - Endpoint Not Found' });
 });
 
-// Auto-start server when run directly
 if (require.main === module) {
     initializeDBAndServer();
 }

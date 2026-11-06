@@ -7,7 +7,6 @@ const dbPath = path.join(__dirname, 'books.db');
 
 async function initializeDatabase() {
     try {
-        // If books.db already exists, remove it for a clean re-initialization
         if (fs.existsSync(dbPath)) {
             fs.unlinkSync(dbPath);
         }

@@ -37,18 +37,15 @@ function request(method, path, data = null) {
 async function runTests() {
     console.log('--- Testing Lab 2 CRUD Endpoints ---');
 
-    // 1. GET /books/
     const r1 = await request('GET', '/books/');
     console.log(`\n[1] GET /books/ -> Status: ${r1.status}`);
     console.log(`Total books retrieved: ${r1.data.length}`);
     console.log('First book:', r1.data[0]);
 
-    // 2. GET /books/1/
     const r2 = await request('GET', '/books/1/');
     console.log(`\n[2] GET /books/1/ -> Status: ${r2.status}`);
     console.log('Book 1 details:', r2.data);
 
-    // 3. POST /books/
     const newBook = {
         title: 'Clean Code: A Handbook of Agile Software Craftsmanship',
         author: 'Robert C. Martin',
@@ -60,11 +57,9 @@ async function runTests() {
     console.log('Response:', r3.data);
     const createdId = r3.data.bookId;
 
-    // Verify created book
     const r3_verify = await request('GET', `/books/${createdId}/`);
     console.log(`Verified newly added book (${createdId}):`, r3_verify.data);
 
-    // 4. PUT /books/1/
     const updatePayload = {
         title: 'To Kill a Mockingbird (Special Anniversary Edition)',
         price: 450
@@ -73,20 +68,16 @@ async function runTests() {
     console.log(`\n[4] PUT /books/1/ -> Status: ${r4.status}`);
     console.log('Response:', r4.data);
 
-    // Verify updated book
     const r4_verify = await request('GET', '/books/1/');
     console.log('Verified updated book 1:', r4_verify.data);
 
-    // 5. DELETE /books/10/
     const r5 = await request('DELETE', '/books/10/');
     console.log(`\n[5] DELETE /books/10/ -> Status: ${r5.status}`);
     console.log('Response:', r5.data);
 
-    // Verify deletion
     const r5_verify = await request('GET', '/books/10/');
     console.log(`Verified book 10 deleted (GET /books/10/): Status ${r5_verify.status}`, r5_verify.data);
 
-    // 6. Unknown 404
     const r6 = await request('GET', '/invalid-path');
     console.log(`\n[6] GET /invalid-path -> Status: ${r6.status}`, r6.data);
 

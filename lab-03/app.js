@@ -11,7 +11,6 @@ const PORT = process.env.PORT || 3000;
 
 let db = null;
 
-// Request logging middleware to log method, path, query and response status
 app.use((req, res, next) => {
     res.on('finish', () => {
         console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} - Status: ${res.statusCode}`);
@@ -19,7 +18,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// Database & Server initialization
 const initializeDBAndServer = async () => {
     try {
         db = await open({
@@ -37,7 +35,6 @@ const initializeDBAndServer = async () => {
     }
 };
 
-// Root route - API index
 app.get('/', (req, res) => {
     res.status(200).json({
         message: 'Welcome to Lab 3: REST API, query parameters, validation, and debugging',
@@ -51,7 +48,6 @@ app.get('/', (req, res) => {
     });
 });
 
-// Route 1: GET /books/ - Search, sort, price-filter, and pagination
 app.get('/books/', async (req, res) => {
     try {
         const {
@@ -64,20 +60,16 @@ app.get('/books/', async (req, res) => {
             max_price
         } = req.query;
 
-        // Validation for order_by column whitelist to prevent SQL injection
         const allowedColumns = ['id', 'title', 'author', 'price', 'pages'];
         const safeOrderBy = allowedColumns.includes(order_by.toLowerCase())
             ? order_by.toLowerCase()
             : 'id';
 
-        // Validation for sort direction
         const safeOrder = order.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
 
-        // Safe integer parsing for limit and offset
         const safeLimit = Math.max(1, parseInt(limit, 10) || 10);
         const safeOffset = Math.max(0, parseInt(offset, 10) || 0);
 
-        // Build WHERE clauses dynamically using ? placeholders
         const whereClauses = ['title LIKE ?'];
         const queryParams = [`%${search_q}%`];
 
@@ -121,7 +113,6 @@ app.get('/books/', async (req, res) => {
     }
 });
 
-// Route 2: GET /books/:bookId/ - Single book lookup
 app.get('/books/:bookId/', async (req, res) => {
     try {
         const { bookId } = req.params;
@@ -137,12 +128,10 @@ app.get('/books/:bookId/', async (req, res) => {
     }
 });
 
-// Route 3: POST /books/ - Add book with strict payload validation
 app.post('/books/', async (req, res) => {
     try {
         const { title, author, price, pages } = req.body;
 
-        // Validation: title and author must be non-empty strings
         if (!title || typeof title !== 'string' || title.trim() === '') {
             return res.status(400).json({ message: 'Invalid or missing title. Title must be a non-empty string.' });
         }
@@ -151,12 +140,10 @@ app.post('/books/', async (req, res) => {
             return res.status(400).json({ message: 'Invalid or missing author. Author must be a non-empty string.' });
         }
 
-        // Validation: price must be numeric and non-negative
         if (price === undefined || price === null || typeof price !== 'number' || isNaN(price) || price < 0) {
             return res.status(400).json({ message: 'Invalid or missing price. Price must be a valid non-negative number.' });
         }
 
-        // Validation: pages must be an integer >= 1
         if (pages === undefined || pages === null || typeof pages !== 'number' || !Number.isInteger(pages) || pages < 1) {
             return res.status(400).json({ message: 'Invalid or missing pages. Pages must be a positive integer.' });
         }
@@ -176,7 +163,6 @@ app.post('/books/', async (req, res) => {
     }
 });
 
-// Route 4: PUT /books/:bookId/ - Update an existing book with validation
 app.put('/books/:bookId/', async (req, res) => {
     try {
         const { bookId } = req.params;
@@ -189,7 +175,6 @@ app.put('/books/:bookId/', async (req, res) => {
             return res.status(404).json({ message: `Book with ID ${bookId} not found` });
         }
 
-        // Validate optional update fields
         if (title !== undefined && (typeof title !== 'string' || title.trim() === '')) {
             return res.status(400).json({ message: 'Title must be a non-empty string.' });
         }
@@ -233,7 +218,6 @@ app.put('/books/:bookId/', async (req, res) => {
     }
 });
 
-// Route 5: DELETE /books/:bookId/ - Delete a book
 app.delete('/books/:bookId/', async (req, res) => {
     try {
         const { bookId } = req.params;
@@ -256,12 +240,10 @@ app.delete('/books/:bookId/', async (req, res) => {
     }
 });
 
-// Wildcard 404 for unknown routes
 app.use((req, res) => {
     res.status(404).json({ message: '404 - Endpoint Not Found' });
 });
 
-// Auto-start server when run directly
 if (require.main === module) {
     initializeDBAndServer();
 }
