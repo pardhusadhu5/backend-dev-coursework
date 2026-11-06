@@ -121,6 +121,15 @@ node testRoutes.js
 ### 5. Successful Resource Creation: `POST /books/` (Status 201 Created)
 ![POST Create 201](screenshots/05_post_create_success_201.png)
 
+### 6. Non-Existent Resource Error: \GET /books/999/\ (Status 404 Not Found)
+![GET Single Book 404](screenshots/06_get_single_book_404.png)
+
+### 7. Resource Update: \PUT /books/1/\ (Status 200 OK)
+![PUT Update 200](screenshots/07_put_update_200.png)
+
+### 8. Resource Deletion: \DELETE /books/10/\ (Status 200 OK)
+![DELETE 200](screenshots/08_delete_200.png)
+
 ---
 
 ## Notes: Problems Faced and How They Were Solved (Debugging Exercise)
