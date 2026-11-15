@@ -48,3 +48,10 @@ cd lab-03
 npm install
 npm run dev
 ```
+## Lab 4 Quickstart
+See the dedicated [Lab 4 README](./lab-04/README.md) for full endpoint specifications, bcrypt hashing, JWT authentication, screenshots, and viva question answers.
+\\ash
+cd lab-04
+npm install
+npm run dev
+\

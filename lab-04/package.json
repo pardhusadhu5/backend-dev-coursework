@@ -1,0 +1,31 @@
+{
+  "name": "lab-04",
+  "version": "1.0.0",
+  "description": "Lab 04: Registration, login and JWT - Backend Development Fundamentals",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "authentication",
+    "bcrypt",
+    "jwt",
+    "sqlite",
+    "express",
+    "lab-04"
+  ],
+  "author": "Pardhu Sadhu",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
