@@ -1,8 +1,10 @@
 # backend-dev-coursework: Backend Development Fundamentals
 
-**Course:** Backend Development Fundamentals — AIDE-2B,313 Year II Term II — Aurora  
-**Faculty:** Yugandhar Gurjalwar
-**Student Name:** Pardhu Sadhu  
+| Field | Details | Field | Details |
+| :--- | :--- | :--- | :--- |
+| **Student Name** | S. Pardhu Naidu | **Class & Section** | AIDE - 2B & 313 |
+| **Student Registration Number** | 252U1R5128 | **Year & Term** | II & II |
+| **Course** | Backend Development Fundamentals | **Faculty Name** | Yugandhar Gurjalwar |
 
 ---
 

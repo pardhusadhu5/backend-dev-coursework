@@ -1,7 +1,17 @@
 # Lab 1: Node.js and Express server
 
-**Pardhu Sadhu** • **[Registration Number: 252U1R5128]** • **Section AIDE-2B**  
-*Backend Development Fundamentals — Year II Term II — Aurora — Faculty: Yugandhar Gurjalwar*
+| Field | Details | Field | Details |
+| :--- | :--- | :--- | :--- |
+| **Student Name** | S. Pardhu Naidu | | |
+| **Student Registration Number** | 252U1R5128 | **Class & Section** | AIDE - 2B & 313 |
+| **Study Level** <br>UG/PG/Doctorate | UG | **Year & Term** | II & II |
+| **TOPIC** | Lab 1: Node.js and Express server | **Course** | Backend Development Fundamentals |
+| **Faculty Name** | Yugandhar Gurjalwar | | |
+
+| Field | Details |
+| :--- | :--- |
+| **Name of the Assessment** | Lab Report 1 |
+| **Date of Submission** | 30-10-2026 |
 
 ---
 

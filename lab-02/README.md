@@ -1,7 +1,17 @@
 # Lab 2: SQLite database and CRUD routes
 
-**Pardhu Sadhu** • **[Registration Number]** • **Section CSE**  
-*Backend Development Fundamentals — Year II Term II — Aurora — Faculty: Joel Prashanth D*
+| Field | Details | Field | Details |
+| :--- | :--- | :--- | :--- |
+| **Student Name** | S. Pardhu Naidu | | |
+| **Student Registration Number** | 252U1R5128 | **Class & Section** | AIDE - 2B & 313 |
+| **Study Level** <br>UG/PG/Doctorate | UG | **Year & Term** | II & II |
+| **TOPIC** | Lab 2: SQLite database and CRUD routes | **Course** | Backend Development Fundamentals |
+| **Faculty Name** | Yugandhar Gurjalwar | | |
+
+| Field | Details |
+| :--- | :--- |
+| **Name of the Assessment** | Lab Report 2 |
+| **Date of Submission** | 31-10-2026 |
 
 ---
 
