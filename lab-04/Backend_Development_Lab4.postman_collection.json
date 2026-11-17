@@ -1,0 +1,233 @@
+{
+  "info": {
+    "_postman_id": "4b6e8a71-6789-4d2a-a92c-lab4jwt2026",
+    "name": "Backend_Development_Lab4",
+    "description": "Postman Collection for Lab 4: User Registration, Login, Bcrypt Hashing, and JWT Authentication.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 - Register New User (Success 201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"pardhu_naidu\",\n    \"name\": \"S. Pardhu Naidu\",\n    \"password\": \"Password123\",\n    \"gender\": \"Male\",\n    \"location\": \"Hyderabad\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/register/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "register",
+            ""
+          ]
+        },
+        "description": "Registers a new user with bcrypt password hashing. Expects 201 Created."
+      },
+      "response": []
+    },
+    {
+      "name": "02 - Register Duplicate User (Error 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"john_doe\",\n    \"name\": \"John Doe\",\n    \"password\": \"secretPass123\",\n    \"gender\": \"Male\",\n    \"location\": \"Hyderabad\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/register/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "register",
+            ""
+          ]
+        },
+        "description": "Attempts to register an existing username (john_doe). Expects 400 Bad Request with 'User already exists'."
+      },
+      "response": []
+    },
+    {
+      "name": "03 - Register Password Too Short (Error 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"short_pass_user\",\n    \"name\": \"Short Pass\",\n    \"password\": \"123\",\n    \"gender\": \"Male\",\n    \"location\": \"Hyderabad\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/register/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "register",
+            ""
+          ]
+        },
+        "description": "Attempts to register with a password shorter than 5 characters. Expects 400 Bad Request with 'Password is too short'."
+      },
+      "response": []
+    },
+    {
+      "name": "04 - Login Invalid User (Error 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"non_existent_user_999\",\n    \"password\": \"secretPass123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/login/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "login",
+            ""
+          ]
+        },
+        "description": "Attempts to login with an unknown username. Expects 400 Bad Request with 'Invalid user'."
+      },
+      "response": []
+    },
+    {
+      "name": "05 - Login Invalid Password (Error 400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"john_doe\",\n    \"password\": \"WrongPassword999\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/login/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "login",
+            ""
+          ]
+        },
+        "description": "Attempts to login with incorrect password. Expects 400 Bad Request with 'Invalid password'."
+      },
+      "response": []
+    },
+    {
+      "name": "06 - Login Success & JWT Token (Success 200)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"john_doe\",\n    \"password\": \"secretPass123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/login/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "login",
+            ""
+          ]
+        },
+        "description": "Successful login with valid credentials. Expects 200 OK with {\"jwt_token\": \"<signed_token>\"}."
+      },
+      "response": []
+    },
+    {
+      "name": "07 - API Overview (Root GET 200)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            ""
+          ]
+        },
+        "description": "Returns API overview and available endpoints. Expects 200 OK."
+      },
+      "response": []
+    }
+  ]
+}

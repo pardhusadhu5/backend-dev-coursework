@@ -95,6 +95,26 @@ To execute all registration, login, and JWT decoding assertions:
 node testRoutes.js
 ```
 
+### 6. Postman Collection for Manual Testing & Screenshots
+A pre-configured Postman Collection is provided in [`Backend_Development_Lab4.postman_collection.json`](./Backend_Development_Lab4.postman_collection.json) to reproduce every test scenario and capture matching screenshots:
+
+| Request Name | Method | URL | Payload / Parameters | Expected Status & Response |
+|---|---|---|---|---|
+| **01 - Register New User** | `POST` | `{{base_url}}/register/` | `{"username": "pardhu_naidu", "name": "S. Pardhu Naidu", "password": "Password123", ...}` | `201 Created` (`"User created successfully"`) |
+| **02 - Register Duplicate User** | `POST` | `{{base_url}}/register/` | `{"username": "john_doe", ...}` | `400 Bad Request` (`"User already exists"`) |
+| **03 - Register Password Too Short** | `POST` | `{{base_url}}/register/` | `{"username": "short_pass_user", "password": "123", ...}` | `400 Bad Request` (`"Password is too short"`) |
+| **04 - Login Invalid User** | `POST` | `{{base_url}}/login/` | `{"username": "non_existent_user_999", "password": "..."}` | `400 Bad Request` (`"Invalid user"`) |
+| **05 - Login Invalid Password** | `POST` | `{{base_url}}/login/` | `{"username": "john_doe", "password": "WrongPassword999"}` | `400 Bad Request` (`"Invalid password"`) |
+| **06 - Login Success & JWT Token** | `POST` | `{{base_url}}/login/` | `{"username": "john_doe", "password": "secretPass123"}` | `200 OK` (`{"jwt_token": "<token>"}`) |
+| **07 - API Overview** | `GET` | `{{base_url}}/` | *None* | `200 OK` (Endpoints list) |
+
+#### How to Import and Run in Postman:
+1. Open **Postman**.
+2. Click **Import** (top-left button).
+3. Drag and drop or browse to [`Backend_Development_Lab4.postman_collection.json`](./Backend_Development_Lab4.postman_collection.json).
+4. Ensure your server is running (`npm start` or `node app.js`).
+5. Execute requests in order to observe responses and capture screenshots.
+
 ---
 
 ## Endpoints / Scripts Table
