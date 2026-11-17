@@ -136,20 +136,26 @@ A pre-configured Postman Collection is provided in [`Backend_Development_Lab4.po
 ### 2. Duplicate Username Rejection: `POST /register/` (Status 400 Bad Request)
 ![User Already Exists](screenshots/02_register_user_exists_400.png)
 
-### 3. Unknown User Rejection: `POST /login/` (Status 400 Bad Request)
-![Invalid User](screenshots/03_login_invalid_user_400.png)
+### 3. Password Length Validation: `POST /register/` (Status 400 Bad Request)
+![Password Too Short](screenshots/03_register_password_too_short_400.png)
 
-### 4. Incorrect Password Rejection: `POST /login/` (Status 400 Bad Request)
-![Invalid Password](screenshots/04_login_invalid_password_400.png)
+### 4. Unknown User Rejection: `POST /login/` (Status 400 Bad Request)
+![Invalid User](screenshots/04_login_invalid_user_400.png)
 
-### 5. Successful Login & JWT Generation: `POST /login/` (Status 200 OK)
-![Login Success JWT](screenshots/05_login_success_jwt_200.png)
+### 5. Incorrect Password Rejection: `POST /login/` (Status 400 Bad Request)
+![Invalid Password](screenshots/05_login_invalid_password_400.png)
 
-### 6. JWT.io Token Inspection (Header, Payload, Signature)
-![JWT.io Decoded Token](screenshots/06_jwt_io_decoded_token.png)
+### 6. Successful Login & JWT Generation: `POST /login/` (Status 200 OK)
+![Login Success JWT](screenshots/06_login_success_jwt_200.png)
 
-### 7. SQLite CLI Verification: Passwords Stored Exclusively as Bcrypt Hashes
-![SQLite Hashed Passwords](screenshots/07_sqlite_hashed_passwords.png)
+### 7. API Overview Route: `GET /` (Status 200 OK)
+![API Overview](screenshots/07_api_overview_200.png)
+
+### 8. JWT.io Token Inspection (Header, Payload, Signature)
+![JWT.io Decoded Token](screenshots/08_jwt_io_decoded_token.png)
+
+### 9. SQLite CLI Verification: Passwords Stored Exclusively as Bcrypt Hashes
+![SQLite Hashed Passwords](screenshots/09_sqlite_hashed_passwords.png)
 
 ---
 
